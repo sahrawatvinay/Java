@@ -13,7 +13,7 @@ public class arrayListImplementation {
 		System.out.println(list);
 		for(Integer i:list) {
 			System.out.println(i);
-			Class<?> objClass = i.getClass();
+			Class<?> objClass = i.getClass(); 
 			System.out.println(objClass);
 		}
 		list.size();
@@ -25,8 +25,7 @@ public class arrayListImplementation {
 		System.out.println(list);
 		Iterator<Integer> it = list.iterator();
 		while(it.hasNext()) {
-			System.out.println(it.next());
+			System.out.print(it.next() + " ");
 		}
 	}
-
 }
