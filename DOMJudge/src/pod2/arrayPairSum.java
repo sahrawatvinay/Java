@@ -17,6 +17,7 @@ public class arrayPairSum {
             nArr[i] = sc.nextInt();
         }
         int nResult = getPairSumResult(nArr);
-        System.out.println(nResult);
+        System.out.println("max_sum: " + nResult);
+        sc.close();
     }
 }
