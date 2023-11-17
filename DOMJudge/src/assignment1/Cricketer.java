@@ -102,6 +102,7 @@ public class Cricketer {
   }
 
   // Override equals method to compare two Cricketer objects for equality
+  @Override
   public boolean equals(Object obj) {
     if (this == obj)
       return true;
@@ -175,9 +176,6 @@ public class Cricketer {
 
   // Method to add Cricketers to the database
   private static void addCricketers(Scanner sc) {
-    if (!login(PASSWORD, sc)) {
-      return;
-    }
 
     System.out.print("Enter the number of Cricketers you want to add: ");
     int numCricketersToAdd = sc.nextInt();
@@ -348,11 +346,21 @@ public class Cricketer {
       choice = sc.nextInt();
 
       if (choice == 1) {
-        attempts = 0;
-        addCricketers(sc);
+       
+        if (login(PASSWORD, sc)) {
+        	 addCricketers(sc);
+        	 attempts=0;
+          } else {
+            attempts++;
+            if (attempts == 4) {
+              System.out.println("Program detected suspicious activities and will terminate immediately!");
+              break;
+            }
+          }
       } else if (choice == 2) {
         if (login(PASSWORD, sc)) {
           updateCricketer(sc);
+          attempts=0;
         } else {
           attempts++;
           if (attempts == MAX_ATTEMPTS * 4) {
