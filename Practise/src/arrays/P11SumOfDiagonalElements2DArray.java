@@ -3,6 +3,8 @@ package arrays;
 import java.lang.reflect.Array;
 
 public class P11SumOfDiagonalElements2DArray {
+    /// checking all elements on the left diagonal
+    /// take pointer keep incrementing till you get max number of rows
     public static int sumOfLeftDiagonal(int[][] arr) {
         int idx = 0;
         int sum = 0;
@@ -13,6 +15,8 @@ public class P11SumOfDiagonalElements2DArray {
         return sum;
     }
 
+    /// in case of right diagonal, idx on left keeps incrementing, right keeps decrementing
+    /// loop accordingly
     public static int sumOfRightDiagonal(int[][] arr) {
         int col = arr.length - 1;
         int row = 0;
